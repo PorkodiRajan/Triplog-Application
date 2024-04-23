@@ -1,0 +1,46 @@
+﻿@model TripLogApplication.Models.Trip
+
+@{
+    string destination = TempData.Peek("Destination") as string;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="bg-secondary py-4 rounded-top">
+            <!-- Apply background color only to this div -->
+            <h1 class="mt-5 mb-4 text-center text-white">Add Things to Do @destination</h1>
+        </div>
+    </div>
+</div>
+<!-- Banner image -->
+<div class="text-center">
+    <img src="https://s3.amazonaws.com/thumbnails.venngage.com/template/e0daef59-784d-48ff-9f66-5ea9e82b6390.png" class="img-fluid" alt="Banner Image">
+</div>
+
+
+
+<!-- Display validation errors -->
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<form asp-controller="Home" method="post" class="my-5">
+    <div class="mb-3">
+        <label asp-for="ThingsToDo1" class="form-label">Things to Do 1:</label>
+        <input asp-for="ThingsToDo1" class="form-control" required />
+        <span asp-validation-for="ThingsToDo1" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ThingsToDo2" class="form-label">Things to Do 2:</label>
+        <input asp-for="ThingsToDo2" class="form-control" required />
+        <span asp-validation-for="ThingsToDo2" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ThingsToDo3" class="form-label">Things to Do 3:</label>
+        <input asp-for="ThingsToDo3" class="form-control" required />
+        <span asp-validation-for="ThingsToDo3" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary me-2">Save</button>
+    <a href="/" class="btn btn-secondary">Cancel</a>
+</form>

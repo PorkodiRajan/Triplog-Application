@@ -1,0 +1,50 @@
+﻿@model TripLogApplication.Models.Trip
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="bg-secondary py-4 rounded-top">
+            <!-- Apply background color only to this div -->
+            <h1 class="mt-5 mb-4 text-center text-white">Add Trip</h1>
+        </div>
+    </div>
+</div>
+
+<!-- Banner image -->
+<div class="text-center">
+    <img src="https://www.ins1.org/wp-content/uploads/2019/08/International-affiliates-1.png" alt="Banner Image">
+</div>
+
+<!-- Display validation errors -->
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<form method="post" class="my-5">
+    <div class="mb-3">
+        <label for="destination" class="form-label">Destination:</label>
+        <input type="text" class="form-control" name="destination" id="destination" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="accommodation" class="form-label">Accommodation:</label>
+        <input type="text" class="form-control" name="accommodation" id="accommodation" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="startDate" class="form-label">Start Date:</label>
+        <input type="date" class="form-control" name="startDate" id="startDate" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="endDate" class="form-label">End Date:</label>
+        <input type="date" class="form-control" name="endDate" id="endDate" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary me-2">Next</button>
+    <a href="/" class="btn btn-secondary">Cancel</a>
+</form>
+<style>
+    
+    img {
+        height: 400px;
+        width: auto;
+    }
+</style>

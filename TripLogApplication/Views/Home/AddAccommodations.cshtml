@@ -1,0 +1,35 @@
+﻿@{
+    string accommodation = TempData.Peek("Accommodation") as string;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="bg-secondary py-4 rounded-top">
+            <!-- Apply background color only to this div -->
+            <h1 class="mt-5 mb-4 text-center text-white">Add Accommodations for @accommodation</h1>
+        </div>
+    </div>
+</div>
+
+<!-- Banner image -->
+<div class="text-center">
+    <img src="https://atharvlifestyle.com/assets/images/atharv-shagun/Project-Banner-Shagun.jpg" class="img-fluid" alt="Banner Image">
+</div>
+
+<!-- Display validation errors -->
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<form method="post" class="my-5">
+    <div class="mb-3">
+        <label for="accommodationPhone" class="form-label">Accommodation Phone:</label>
+        <input type="text" class="form-control" name="accommodationPhone" id="accommodationPhone" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="accommodationEmail" class="form-label">Accommodation Email:</label>
+        <input type="email" class="form-control" name="accommodationEmail" id="accommodationEmail" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary me-2">Next</button>
+    <a href="/" class="btn btn-secondary">Cancel</a>
+</form>

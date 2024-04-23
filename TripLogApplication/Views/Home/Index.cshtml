@@ -1,0 +1,86 @@
+﻿@model List<TripLogApplication.Models.Trip>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trip Log</title>
+    <meta http-equiv="refresh" content="600">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        img {
+            height: 10px;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    @* <h2>Trip Log</h2> *@
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bg-secondary py-4 rounded-top">
+                <!-- Apply background color only to this div -->
+                <h1 class="mt-5 mb-4 text-center text-white">Trip Log</h1>
+            </div>
+        </div>
+    </div>
+    <br />
+    @{
+        string tripAdded = TempData.Peek("TripAdded") as string;
+    }
+    <div class="text-center">
+        <img src="https://static.vecteezy.com/system/resources/previews/023/122/351/original/3d-concept-time-to-travel-illustration-vector.jpg" class="img-fluid" alt="Banner Image">
+    </div>
+    <h3 class="text-success">@tripAdded</h3>
+
+  
+    <a asp-controller="Home" asp-action="AddTrip" class="btn btn-primary">Add Trip</a>
+    <br />
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th>Destination</th>
+                <th>Accommodation</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Accommodation Phone</th>
+                <th>Accommodation Email</th>
+                <th>Things To Do 1</th>
+                <th>Things To Do 2</th>
+                <th>Things To Do 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var trip in Model)
+            {
+                <tr>
+                    <td>@trip.Destination</td>
+                    <td>@trip.Accommodation</td>
+                    <td>@trip.StartDate.ToShortDateString()</td>
+                    <td>@trip.EndDate.ToShortDateString()</td>
+                    <td>@trip.AccommodationPhone</td>
+                    <td>@trip.AccommodationEmail</td>
+                    <td>@trip.ThingsToDo1</td>
+                    <td>@trip.ThingsToDo2</td>
+                    <td>@trip.ThingsToDo3</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
